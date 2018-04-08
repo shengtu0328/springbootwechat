@@ -8,6 +8,9 @@ import java.beans.PropertyVetoException;
 public class DataSoureConfiguration {
 
     private String jdbcDriver;
+    private String jdbcUrl;
+    private String jdbausername;
+    private String jdbcPassword;
 
     @Bean(name = "dataSource")
     public ComboPooledDataSource createDataSource() throws PropertyVetoException {
