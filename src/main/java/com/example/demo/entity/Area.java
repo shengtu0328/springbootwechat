@@ -5,7 +5,7 @@ import java.util.Date;
 public class Area {
     private Integer areaId;
 
-    private Integer areaName;
+    private String areaName;
 
     private Integer priority;
 
@@ -21,11 +21,11 @@ public class Area {
         this.areaId = areaId;
     }
 
-    public Integer getAreaName() {
+    public String getAreaName() {
         return areaName;
     }
 
-    public void setAreaName(Integer areaName) {
+    public void setAreaName(String areaName) {
         this.areaName = areaName;
     }
 

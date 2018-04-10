@@ -11,7 +11,7 @@
         DESC
     </select>
 
-    <select id="queryAreaById" resultType="com.example.demo.entity.Area">
+    <select id="queryAreaById" resultType="Area">
         SELECT area_id, area_name,
         priority, create_time, last_edit_time
         FROM tb_area
@@ -19,7 +19,7 @@
         area_id=#{areaId}
     </select>
     <insert id="insertArea" useGeneratedKeys="true" keyProperty="areaId"
-            keyColumn="area_id" parameterType="com.example.demo.entity.Area">
+            keyColumn="area_id" parameterType="Area">
         INSERT INTO
         tb_area(area_name,priority,
         create_time,last_edit_time)
