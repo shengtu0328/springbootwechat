@@ -4,21 +4,25 @@ import org.mybatis.spring.SqlSessionFactoryBean;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.context.annotation.Bean;
+import org.springframework.context.annotation.Configuration;
 import org.springframework.core.io.ClassPathResource;
 import org.springframework.core.io.support.PathMatchingResourcePatternResolver;
 
 import javax.sql.DataSource;
 import java.io.IOException;
-
+@Configuration
 public class SessionFactoryConfiguration {
 
-
-    @Value("${mybatis.config.path}")
+    //mybatis-config.xml 配置文件的路径
+    @Value("${mybatis_config_path}")
     private String myBatisConfigPath;
-    @Value("${mapper.xml.config.path}")
+    //mybatis mapper文件的路径
+    @Value("${mapper_path}")
     private String mapperXMLConfigPath;
-    @Value("${mapper.package.path}")
-    private String mapperPackagePath;
+    //实例类所在的包
+    @Value("${entity_package}")
+    private String entityPackage;
+
     @Autowired
     private DataSource dataSource;
 
@@ -35,7 +39,7 @@ public class SessionFactoryConfiguration {
         // 设置数据源
         sqlSessionFactoryBean.setDataSource(dataSource);
         // 设置mapper 接口所在的包
-        sqlSessionFactoryBean.setTypeAliasesPackage(mapperPackagePath);
+        sqlSessionFactoryBean.setTypeAliasesPackage(entityPackage);
 
         return sqlSessionFactoryBean;
     }
